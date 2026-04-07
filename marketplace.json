@@ -1,0 +1,15 @@
+{
+  "name": "econ-writing-style-agents",
+  "description": "Writing style review agents for economics papers",
+  "plugins": [
+    {
+      "name": "pedro-review",
+      "description": "Reviews economics papers following Pedro Sant'Anna's writing style. Produces structured editorial reports with before/after suggestions.",
+      "version": "1.0.0",
+      "source": {
+        "type": "github",
+        "repo": "yangzichao/econ-writing-style-agents"
+      }
+    }
+  ]
+}
