@@ -1,0 +1,20 @@
+{
+  "name": "econ-writing-style-agents",
+  "interface": {
+    "displayName": "Econ Writing Style Agents"
+  },
+  "plugins": [
+    {
+      "name": "pedro-review-agent",
+      "source": {
+        "source": "local",
+        "path": "./plugins/pedro-review-agent"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Writing"
+    }
+  ]
+}

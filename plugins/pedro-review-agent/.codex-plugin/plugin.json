@@ -1,0 +1,37 @@
+{
+  "name": "pedro-review-agent",
+  "version": "1.0.0",
+  "description": "Reviews economics papers following Pedro Sant'Anna's writing style.",
+  "author": {
+    "name": "Zichao Yang",
+    "url": "https://github.com/yangzichao"
+  },
+  "homepage": "https://github.com/yangzichao/econ-writing-style-agents",
+  "repository": "https://github.com/yangzichao/econ-writing-style-agents",
+  "license": "MIT",
+  "keywords": [
+    "economics",
+    "writing",
+    "paper-review",
+    "style"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Pedro Review Agent",
+    "shortDescription": "Pedro Sant'Anna-style editorial review for economics papers",
+    "longDescription": "Reviews PDF, LaTeX, or plain-text economics papers using rules derived from Pedro H.C. Sant'Anna's draft-to-publication revision patterns.",
+    "developerName": "Zichao Yang",
+    "category": "Writing",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/yangzichao/econ-writing-style-agents",
+    "defaultPrompt": [
+      "Review this draft in Pedro Sant'Anna's style.",
+      "Rewrite my abstract and introduction in Pedro's style.",
+      "Find the top 5 editorial fixes for this economics paper."
+    ],
+    "brandColor": "#1F6F5F"
+  }
+}

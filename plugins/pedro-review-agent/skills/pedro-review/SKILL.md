@@ -1,29 +1,30 @@
 ---
 name: pedro-review
-description: Review an economics paper following Pedro Sant'Anna's writing style. Checks abstract, introduction, terminology, framing, and produces a structured editorial report with before/after suggestions.
+description: Review an economics paper following Pedro Sant'Anna's writing style. Accepts a paper path and produces a structured editorial report covering abstract, introduction, terminology, framing, and prioritized revisions.
 argument-hint: <path-to-paper>
 allowed-tools: Read Grep Glob
 ---
 
 # Pedro Sant'Anna Writing Style Review
 
-Review the paper at $ARGUMENTS and produce a structured editorial report.
+Review the paper path provided by the user and produce a structured editorial report. If the caller passes an explicit argument string such as `$ARGUMENTS`, use that as the paper path.
 
 ## Step 1: Load Rules
 
-Read these supporting files from ${CLAUDE_SKILL_DIR} in parallel:
+Read these supporting files from this skill directory in parallel:
 
-- `${CLAUDE_SKILL_DIR}/rules/01-abstract.md` — Abstract compression, throat-clearing, self-promotion
-- `${CLAUDE_SKILL_DIR}/rules/02-introduction.md` — Opening, contributions, running examples
-- `${CLAUDE_SKILL_DIR}/rules/03-terminology.md` — Word substitutions, precision, active voice, hedging
-- `${CLAUDE_SKILL_DIR}/rules/04-framing.md` — Solution framing, intuition-first, RCT parallels
-- `${CLAUDE_SKILL_DIR}/rules/05-revision.md` — What to cut, add, expand
-- `${CLAUDE_SKILL_DIR}/rules/06-style-markers.md` — Signature phrases, architecture, survey conventions
-- `${CLAUDE_SKILL_DIR}/rules/07-checklist.md` — Full multi-pass review checklist
+- `rules/01-abstract.md` — Abstract compression, throat-clearing, self-promotion
+- `rules/02-introduction.md` — Opening, contributions, running examples
+- `rules/03-terminology.md` — Word substitutions, precision, active voice, hedging
+- `rules/04-framing.md` — Solution framing, intuition-first, RCT parallels
+- `rules/05-revision.md` — What to cut, add, expand
+- `rules/06-style-markers.md` — Signature phrases, architecture, survey conventions
+- `rules/07-checklist.md` — Full multi-pass review checklist
+- `evidence-base.md` — Paper-by-paper supporting evidence for the style rules
 
 ## Step 2: Read the Paper
 
-Read $ARGUMENTS. For PDFs, read pages 1-8 (abstract + intro) and the last 5 pages (conclusion). Scan section headings.
+Read the target paper. For PDFs, read pages 1-8 (abstract + intro) and the last 5 pages (conclusion). Scan section headings. If no paper path is available, ask the user for one before continuing.
 
 ## Step 3: Review
 
