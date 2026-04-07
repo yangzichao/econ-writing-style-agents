@@ -35,5 +35,16 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
-# Research PDFs (copyrighted, re-download from ArXiv/author websites)
+# PDFs (copyrighted papers, test files)
+*.pdf
 research/*/raw_pdfs/
+
+# LaTeX build artifacts
+*.aux
+*.out
+*.synctex.gz
+
+# Test papers and review outputs (user-specific)
+JMP_*.tex
+*-pedro-review.*
+*-jonathan-roth-review.*

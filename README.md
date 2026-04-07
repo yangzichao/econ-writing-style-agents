@@ -1,89 +1,86 @@
 # Econ Writing Style Agents
 
-Pedro Sant'Anna writing-style review plugin for economics papers, packaged for both Claude Code and Codex.
+A Claude Code plugin marketplace for economics paper writing style review. Each agent encodes the revision patterns of a specific author — derived from comparing early drafts (e.g., ArXiv v1) with published versions.
 
-The style rules are derived from comparing early drafts such as ArXiv v1 with published versions across Econometrica, JoE, JPE:Micro, AER, JEL, JBES, and JAERE.
-
-## Plugin
-
-| Plugin | Targets | Purpose |
-|---|---|---|
-| `pedro-review-agent` | Claude Code, Codex | Pedro Sant'Anna-style editorial review for economics papers |
-
-### Pedro Review Agent
-
-Reviews a PDF, LaTeX, or plain-text paper using 7 rule files derived from 20+ Pedro H.C. Sant'Anna papers. The output is a structured editorial report covering abstract compression, introduction structure, terminology, voice, framing, and the highest-impact revisions.
-
-## Install In Claude Code
+## Install
 
 ```bash
+# Add the marketplace
 claude plugin marketplace add yangzichao/econ-writing-style-agents
+
+# Install the agent(s) you want
 claude plugin install pedro-review-agent@econ-writing-style-agents
+claude plugin install jonathan-roth-review-agent@econ-writing-style-agents
 ```
 
 Or inside a Claude Code session:
 
-```text
+```
 /plugin marketplace add yangzichao/econ-writing-style-agents
 /plugin install pedro-review-agent@econ-writing-style-agents
+/plugin install jonathan-roth-review-agent@econ-writing-style-agents
 ```
 
-After installing, run `/reload-plugins`.
+After installing, run `/reload-plugins` to activate.
 
-## Use In Codex
+## Available Agents
 
-This repo now includes the Codex plugin files for `pedro-review-agent`:
+| Agent | Command | Author Style |
+|---|---|---|
+| Pedro Review Agent | `/pedro-review-agent:pedro-review <file>` | Pedro H.C. Sant'Anna |
+| Jonathan Roth Review Agent | `/jonathan-roth-review-agent:jonathan-roth-review <file>` | Jonathan Roth |
 
-- `.agents/plugins/marketplace.json`
-- `plugins/pedro-review-agent/.codex-plugin/plugin.json`
+### Pedro Review Agent
 
-Open this repository in Codex and let Codex discover the repo-local marketplace from `.agents/plugins/marketplace.json`. If Codex was already open, restart or reload the session so it rescans plugins.
+Reviews an economics paper following Pedro H.C. Sant'Anna's writing style — derived from comparing his ArXiv v1 drafts with published versions across Econometrica, JoE, JPE:Micro, AER, JEL, JBES, and JAERE.
+
+Accepts PDF, LaTeX, or plain text. The agent reads your paper, applies 7 rule files derived from 20+ published papers, and produces a structured editorial report covering: abstract compression, introduction structure, terminology, voice, framing, and a prioritized list of changes.
+
+### Jonathan Roth Review Agent
+
+Reviews an economics paper following Jonathan Roth's writing style — derived from comparing his ArXiv v1 drafts with published versions across QJE, AER: Insights, REStud, Econometrica, JoE, JASA, and JPE:Micro.
+
+Focuses on: critique-then-construct framing, named impossibility results, menu-of-alternatives structure, sensitivity analysis framing, quantified empirical surveys, practical recommendations, and question titles.
 
 ## Update
-
-Claude marketplace update:
 
 ```bash
 claude plugin marketplace update econ-writing-style-agents
 ```
 
-For Codex, update the repo and reload Codex so it rescans the plugin metadata.
-
 ## Uninstall
-
-Claude uninstall:
 
 ```bash
 claude plugin uninstall pedro-review-agent@econ-writing-style-agents
+claude plugin uninstall jonathan-roth-review-agent@econ-writing-style-agents
 ```
-
-For Codex, remove the repo-local marketplace entry or remove the plugin files from this repository.
 
 ## Repo Structure
 
-```text
-.claude-plugin/marketplace.json        # Claude Code marketplace
-.agents/plugins/marketplace.json       # Codex marketplace
+```
+.claude-plugin/marketplace.json        # Marketplace definition
 plugins/
-  pedro-review-agent/
-    .claude-plugin/plugin.json         # Claude plugin manifest
-    .codex-plugin/plugin.json          # Codex plugin manifest
+  pedro-review-agent/                  # Pedro Sant'Anna style agent
     skills/pedro-review/
+      SKILL.md                         # Agent entry point
+      rules/                           # 7 rule files
+      evidence-base.md                 # Paper-by-paper evidence
+  jonathan-roth-review-agent/          # Jonathan Roth style agent
+    skills/jonathan-roth-review/
       SKILL.md                         # Agent entry point
       rules/                           # 7 rule files
       evidence-base.md                 # Paper-by-paper evidence
 research/
   pedro-santanna/                      # Raw research data (20 paper analyses)
+  jonathan-roth/                       # Raw research data (10+ paper analyses)
 ```
 
-## Add Another Author Agent
+## Contributing a New Author Agent
 
-1. Collect papers with multiple versions such as ArXiv v1 plus published.
-2. Analyze revision patterns and save them under `research/<author-name>/`.
-3. Create `plugins/<author-name>-review-agent/`.
-4. Add the plugin manifest for the target product:
-   `.claude-plugin/plugin.json` for Claude Code, `.codex-plugin/plugin.json` for Codex, or both.
-5. Register the plugin in the matching marketplace file.
+1. Collect papers with multiple versions (e.g., ArXiv v1 + published)
+2. Analyze revision patterns, save under `research/<author-name>/`
+3. Create a new plugin under `plugins/<author-name>-review-agent/`
+4. Add entry to `.claude-plugin/marketplace.json`
 
 ## License
 

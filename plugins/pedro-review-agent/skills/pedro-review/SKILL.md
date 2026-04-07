@@ -2,7 +2,7 @@
 name: pedro-review
 description: Review an economics paper following Pedro Sant'Anna's writing style. Accepts a paper path and produces a structured editorial report covering abstract, introduction, terminology, framing, and prioritized revisions.
 argument-hint: <path-to-paper>
-allowed-tools: Read Grep Glob
+allowed-tools: Read Grep Glob Write
 ---
 
 # Pedro Sant'Anna Writing Style Review
@@ -30,9 +30,9 @@ Read the target paper. For PDFs, read pages 1-8 (abstract + intro) and the last 
 
 Apply the 7-pass checklist from `07-checklist.md`. For each issue, provide the location, current text, suggested revision, and which rule applies.
 
-## Step 4: Output the Report
+## Step 4: Output and Save the Report
 
-Use this format:
+Use this format. After outputting the report, save it as a markdown file in the same directory as the input paper. Name the file `<paper-filename>-pedro-review.md` (e.g., if the paper is `my-paper.pdf`, save to `my-paper-pedro-review.md` in the same folder).
 
 ```
 # Pedro Sant'Anna Style Review Report
