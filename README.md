@@ -42,6 +42,10 @@ Reviews an economics paper following Jonathan Roth's writing style — derived f
 
 Focuses on: critique-then-construct framing, named impossibility results, menu-of-alternatives structure, sensitivity analysis framing, quantified empirical surveys, practical recommendations, and question titles.
 
+### Which agent should I use?
+
+The two agents share many mechanical rules (compress abstracts, kill throat-clearing, add software links) but diverge on *framing*. Sant'Anna's style leads with the solution — "here's a better tool." Roth's style leads with the critique — "here's what's wrong and how to fix it." Running both on the same paper and comparing the reports can help you decide which framing fits your paper better.
+
 ## Update
 
 ```bash

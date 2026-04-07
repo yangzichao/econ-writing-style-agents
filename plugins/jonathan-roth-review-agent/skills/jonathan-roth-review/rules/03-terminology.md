@@ -44,9 +44,9 @@ Replace vague characterizations with specific ones. Every claim should be precis
 |---|---|---|
 | "can be hard to interpret" | State the specific reason interpretation fails | Logs |
 | "there is no good parameter" | "there is no treatment effect parameter that is (i) an average of individual-level effects, (ii) unit-invariant, and (iii) point-identified" | Logs (trilemma) |
-| "performs well" | State the metric and the benchmark | General |
-| "under mild conditions" | Name or number the conditions | General |
-| "standard assumptions" | Name the specific assumptions | General |
+| "performs well" | State the metric and the benchmark (e.g., "empirical size close to the nominal level") | Staggered Rollout, Moment Inequalities |
+| "under mild conditions" | Name or number the conditions (e.g., "under Assumptions 1–3") | Design-Based Uncertainty |
+| "standard assumptions" | Name the specific assumptions (e.g., "under SUTVA and monotonicity") | Testing Mechanisms |
 
 **Check:** Flag any sentence containing "hard to interpret," "performs well," "under mild/standard conditions," or "similar properties" and request the specific claim.
 
@@ -60,8 +60,24 @@ Roth's published prose uses active voice and confident verbs. The progression fr
 | "it may be possible to" | "we develop" / "we derive" | Testing Mechanisms v1 to v3 |
 | "should we adjust" (questioning) | "pretest with caution" (directive) | Pre-test title change |
 | "we investigate" | "we characterize" | Design-Based v1 to v8 |
-| "it seems that" | "we find that" | General |
-| "one could potentially" | "we propose" | General |
+| "it seems that" | "we find that" | Design-Based v1→v8 |
+| "one could potentially" | "we propose" | Testing Mechanisms v1→v3 |
+
+### Before / After Examples
+
+**Paper: Pre-test with Caution (ArXiv v1 → AER:I 2022) — Title change**
+> WEAK: "Should We Adjust for the Test for Pre-trends in Difference-in-Difference Designs?"
+>
+> STRONG: "Pretest with Caution: Event-Study Estimates after Testing for Parallel Trends"
+
+The questioning title became a directive. "Should we?" implies uncertainty; "Pretest with Caution" tells the reader what to do.
+
+**Paper: Moment Inequalities (ArXiv v1 → REStud 2023)**
+> WEAK: "We consider inference based on linear conditional moment inequalities"
+>
+> STRONG: "We show that moment inequalities in a wide variety of economic applications have a particular linear conditional structure"
+
+"We consider" describes an activity; "We show" states a finding.
 
 **Check:** Flag passive constructions ("it is shown that," "it can be seen that") and tentative verbs ("may," "might," "could potentially," "seems"). Replace with active, definitive alternatives unless the hedge is genuinely warranted (see Hedging Rules below).
 

@@ -49,6 +49,43 @@ Question or problem identification (often in title)
                 -> Software announcement
 ```
 
+### Paper Architecture Evolution
+
+#### Early Career / Working Paper Stage (2018)
+```
+Question title or technical title
+  → Detailed technical abstract with math notation
+    → Extended background motivation
+      → Technical results
+        → Monte Carlo simulations
+          → Brief application
+```
+
+Characteristics:
+- Title: question format ("Should We Condition on the Test for Pre-trends?")
+- Abstract: walks through cases step by step
+- Hedging: "I analyze the properties of... conditional on having passed"
+- Uses "I" naturally for solo work
+
+#### Mature Style (2022+)
+```
+Question or cautionary title
+  → Common practice description with quantified survey
+    → Hidden limitations revealed (numbered)
+      → Named impossibility result (if applicable)
+        → Menu of constructive alternatives
+          → Empirical illustration(s)
+            → Practical recommendations section
+              → Software announcement
+```
+
+Characteristics:
+- Title: catchier, more directive ("Pretest with Caution" instead of "Should We Condition...")
+- Abstract: high-level problem framing, no math
+- Confident voice: "We establish," "We develop," "We show"
+- "Related Literature" as a formal subsection
+- Software packages with GitHub URLs
+
 ### Key differences from Sant'Anna:
 | Dimension | Sant'Anna | Roth |
 |---|---|---|
@@ -83,3 +120,18 @@ Roth consistently announces software:
 - Named co-editors and referees
 - NSF funding acknowledged
 - AI tools: Not mentioned (as of 2024 papers)
+
+### Notation Conventions
+
+| Convention | Usage |
+|---|---|
+| Y(0), Y(1) | Potential outcomes |
+| D | Treatment indicator |
+| Z | Instrument |
+| X | Covariates |
+| DiD | Difference-in-differences (not DID) |
+| ATT | Average treatment effect on the treated |
+| TWFE | Two-way fixed effects |
+| ATE | Average treatment effect |
+| LATE | Local average treatment effect |
+| (i), (ii), (iii) | Numbering alternatives in menus |

@@ -15,6 +15,11 @@ Don't narrate your logical process. State results directly.
 Evidence: Pre-test v1 walks through valid/invalid cases -> published gives two-bullet summary.
 Evidence: Staggered v1 "The efficient estimator is not feasible in practice because it requires knowledge of the optimal weights. However, the optimal weights can be estimated..." -> published: "A feasible plug-in version of the efficient estimator is asymptotically unbiased..."
 
+**Paper: Staggered Rollout (ArXiv v1 → JPE:Micro 2023)**
+> CUT: "The efficient estimator is not feasible in practice because it requires knowledge of the optimal weights to be placed on pre-treatment outcomes. However, the optimal weights can be estimated from the data, and in large datasets the plug-in estimator that uses the estimated weights has similar properties to the 'oracle' efficient estimator."
+>
+> KEEP: "A feasible plug-in version of the efficient estimator is asymptotically unbiased with efficiency (weakly) dominating that of existing approaches."
+
 ### 4. Self-promotional language
 Remove "of independent interest," "most precise estimates to date."
 Evidence: Staggered v1->published (removed self-promotion).
@@ -76,3 +81,24 @@ Roth's title changes are among the most dramatic in the corpus:
 - Question -> Directive: "Should We Condition..." -> "Pretest with Caution"
 - The published title is shorter, catchier, and actionable
 - Question titles work well for framing papers ("Logs with zeros?", "When Is Parallel Trends Sensitive?")
+
+## Structural Changes
+
+### Papers That Were Extensively Revised
+- Logs with Zeros: 7 versions over 11 months. Abstract restructured around "trilemma" concept. Math notation removed from abstract entirely.
+- Pre-test with Caution: Title changed completely. Abstract rewritten from technical walkthrough to high-level problem framing. Added quantified empirical survey ("70 papers").
+- Design-Based Uncertainty: 8 versions over 5 years. Reframed from descriptive (SDIM estimator properties) to constructive (sensitivity analysis framework). Opening changed from "Social scientists are often interested in" to specific field context.
+- Moment Inequalities: 5 versions. Abstract reframed from "We consider" to "We show." Added "wide variety of economic applications" framing.
+
+### Papers That Were Minimally Revised
+- What's Trending in DiD: Abstract virtually identical v1 to published. As a survey paper, the scope was well-defined from the start. Major additions were the Medicaid running example and triple differences section.
+- Interpreting Event-Studies: 2 versions, minor changes. Short practical paper.
+
+### Compression Statistics
+| Paper | v1 words | Published words | Reduction |
+|---|---|---|---|
+| Staggered Rollout | ~170 | ~90 | 47% |
+| Parallel Trends FF | ~170 | ~100 | 41% |
+| Logs with Zeros | ~190 | ~160 | 16% |
+| Pre-test with Caution | ~150 | ~85 | 43% |
+| Testing Mechanisms | ~180 | ~100 | 44% |
