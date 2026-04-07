@@ -21,12 +21,12 @@ After installing, run `/reload-plugins` to activate.
 ## Use
 
 ```
-/pedro-review path/to/your-paper.pdf
+/pedro-review-agent:pedro-review path/to/your-paper.pdf
 ```
 
 Accepts PDF, LaTeX, or plain text. The agent reads your paper, applies 7 rule files derived from 20+ published papers, and produces a structured editorial report.
 
-## Agent: `/pedro-review`
+## Agent: `/pedro-review-agent:pedro-review`
 
 Reviews an economics paper following Pedro H.C. Sant'Anna's writing style — derived from comparing his ArXiv v1 drafts with published versions across Econometrica, JoE, JPE:Micro, AER, JEL, JBES, and JAERE.
 

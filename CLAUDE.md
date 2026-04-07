@@ -8,7 +8,7 @@ claude plugin install pedro-review-agent@econ-writing-style-agents
 
 ## Agent
 
-`/pedro-review <file>` — Reviews an economics paper following Pedro Sant'Anna's writing conventions.
+`/pedro-review-agent:pedro-review <file>` — Reviews an economics paper following Pedro Sant'Anna's writing conventions.
 
 Agent definition: `plugins/pedro-review-agent/skills/pedro-review/SKILL.md`
 Rules: `plugins/pedro-review-agent/skills/pedro-review/rules/`
