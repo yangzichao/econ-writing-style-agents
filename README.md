@@ -2,45 +2,40 @@
 
 Claude Code plugin that reviews economics paper drafts following specific authors' writing conventions.
 
-## Quick Start
-
-### Install
-
-```bash
-# In Claude Code, run:
-/plugin marketplace add yangzichao/econ-writing-style-agents
-/plugin install econ-writing-style-agents@econ-writing-style-agents
-```
-
-Or from the terminal:
+## Install
 
 ```bash
 claude plugin marketplace add yangzichao/econ-writing-style-agents
 claude plugin install econ-writing-style-agents@econ-writing-style-agents
 ```
 
-### Use
+Or inside a Claude Code session:
+
+```
+/plugin marketplace add yangzichao/econ-writing-style-agents
+/plugin install econ-writing-style-agents@econ-writing-style-agents
+```
+
+After installing, run `/reload-plugins` in your session to activate.
+
+## Use
 
 ```
 /pedro-review path/to/your-paper.pdf
 ```
 
-The agent reads your paper, consults 7 rule files derived from 20+ published papers, and produces a structured review report.
-
----
+Accepts PDF, LaTeX, or plain text. The agent reads your paper, consults 7 rule files derived from 20+ published papers, and produces a structured review report with concrete before/after suggestions.
 
 ## Agent: `/pedro-review`
 
-Reviews an economics paper and outputs a report with concrete before/after revision suggestions.
-
-**Based on**: Systematic comparison of Pedro H.C. Sant'Anna's ArXiv v1 drafts with published versions across Econometrica, Journal of Econometrics, JPE: Micro, AER, JEL, JBES, and JAERE.
+Reviews an economics paper following Pedro H.C. Sant'Anna's writing style. Based on systematic comparison of his ArXiv v1 drafts with published versions across Econometrica, Journal of Econometrics, JPE: Micro, AER, JEL, JBES, and JAERE.
 
 ### What the Report Covers
 
 | Section | What It Checks |
 |---|---|
 | **Abstract** | Throat-clearing, 30-50% compression, self-promotion, purpose-centric framing |
-| **Introduction** | Direct contribution opening, enumerated contributions, running example, formal lit section, software |
+| **Introduction** | Direct contribution opening, enumerated contributions, running example, formal lit section |
 | **Terminology** | "units" not "individuals", "DiD" not "DID", "comparison group", "working models" |
 | **Voice** | Active over passive, definitive over tentative, precision over generality |
 | **Framing** | Solution-oriented, intuition-first, RCT parallels, trade-off labeling |
@@ -53,8 +48,8 @@ Reviews an economics paper and outputs a report with concrete before/after revis
 # Pedro Sant'Anna Style Review Report
 
 **Paper**: Estimating Causal Effects with Staggered Adoption
-**Assessment**: Strong methods paper; abstract needs 40% compression and the introduction
-lacks enumerated contributions.
+**Assessment**: Strong methods paper; abstract needs 40% compression
+and the introduction lacks enumerated contributions.
 
 ## Abstract
 **[A.1]** Throat-clearing in opening sentence
@@ -63,7 +58,7 @@ lacks enumerated contributions.
 - Rule: 01-abstract, Rule 1
 
 ### Rewritten Abstract
-[Full rewrite]
+[Full rewrite applying all rules]
 
 ### Stats: 165 words → 92 words (44% reduction)
 
@@ -75,49 +70,39 @@ lacks enumerated contributions.
 5. Move Monte Carlo details to supplementary appendix
 ```
 
----
-
-## Manage the Plugin
+## Update
 
 ```bash
-# List installed plugins
-/plugin
-
-# Disable without uninstalling
-/plugin disable econ-writing-style-agents@econ-writing-style-agents
-
-# Re-enable
-/plugin enable econ-writing-style-agents@econ-writing-style-agents
-
-# Uninstall
-/plugin uninstall econ-writing-style-agents@econ-writing-style-agents
-
-# Update marketplace (pull latest from GitHub)
-/plugin marketplace update econ-writing-style-agents
+claude plugin marketplace update econ-writing-style-agents
 ```
 
----
+## Uninstall
+
+```bash
+claude plugin uninstall econ-writing-style-agents@econ-writing-style-agents
+```
 
 ## How It Works
 
 The agent is a single `SKILL.md` that:
 
-1. **Loads 7 rule files** at runtime (abstract, introduction, terminology, framing, revision, style markers, checklist)
+1. **Loads 7 rule files** at runtime — abstract, introduction, terminology, framing, revision patterns, style markers, and a multi-pass checklist
 2. **Reads your paper** (PDF, LaTeX, or plain text)
-3. **Applies the multi-pass checklist** from `07-checklist.md`
+3. **Applies the checklist** systematically across all sections
 4. **Outputs a structured report** with location, current text, suggested revision, and rule reference for each issue
 
-All rules are empirically derived — not opinions, but patterns observed across 20+ real paper revisions.
+All rules are empirically derived from comparing ArXiv v1 drafts with final published versions of 20+ papers — not opinions, but observed revision patterns.
 
 ## Repo Structure
 
 ```
-.claude-plugin/plugin.json       # Plugin manifest
-marketplace.json                 # Marketplace definition (for /plugin install)
+.claude-plugin/
+  plugin.json                    # Plugin manifest
+  marketplace.json               # Marketplace definition
 skills/pedro-review/
   SKILL.md                       # Agent entry point
-  rules/                         # 7 supporting rule files
-  evidence-base.md               # Paper-by-paper evidence
+  rules/                         # 7 supporting rule files the agent reads
+  evidence-base.md               # Paper-by-paper evidence for each rule
 research/pedro-santanna/         # Raw research data (20 paper analyses)
 ```
 
@@ -127,7 +112,7 @@ research/pedro-santanna/         # Raw research data (20 paper analyses)
 2. Analyze revision patterns, save under `research/<author>/`
 3. Synthesize rules under `skills/<author>-review/rules/`
 4. Create `skills/<author>-review/SKILL.md`
-5. Add to `marketplace.json`
+5. Add entry to `.claude-plugin/marketplace.json`
 
 ## License
 
