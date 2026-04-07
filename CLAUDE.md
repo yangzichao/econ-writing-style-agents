@@ -1,21 +1,30 @@
 # Econ Writing Style Agents
 
-This repo provides Claude Code skills for reviewing and polishing economics papers following Pedro H.C. Sant'Anna's writing style.
+A collection of writing style review agents for economics papers. Each agent embodies a specific author's editorial voice, derived from empirical analysis of their revision patterns.
 
-## Available Skills
+## Agents
 
-- `/review-pedro-style <file>` — Full multi-pass review (structure, abstract, intro, terminology, framing, polish)
-- `/polish-abstract <file>` — Abstract-specific review and rewrite
-- `/polish-introduction <file>` — Introduction-specific review
-- `/revision-guide <file>` — Pre-submission revision plan (what to cut, add, expand)
+### `/pedro-review <file>`
+Pedro Sant'Anna Writing Style Review Agent. Reviews an economics paper and produces a structured report with concrete revision suggestions — covering abstract, introduction, terminology, framing, and revision strategy.
 
-## Project Structure
+Rules: `agents/pedro-santanna-review/rules/`
+Evidence: `agents/pedro-santanna-review/evidence-base.md`
 
-- `skills/` — Detailed reference documentation (8 files covering rules, patterns, evidence)
-- `papers/analysis/` — Per-paper comparative analyses (20 markdown files)
-- `papers/raw_pdfs/` — Downloaded ArXiv v1 and published PDFs
-- `.claude/skills/` — Claude Code skill definitions (installable)
+## Repo Structure
 
-## Style Methodology
+```
+agents/              # Agent definitions and their knowledge bases
+  pedro-santanna-review/
+    rules/           # Style rules the agent applies (7 files)
+    evidence-base.md # Paper-by-paper evidence for each rule
 
-All rules are derived from comparing ArXiv v1 drafts with final published versions of 20+ Sant'Anna papers across Econometrica, Journal of Econometrics, JPE: Micro, AER, JEL, JBES, and JAERE.
+research/            # Raw research data used to build agents
+  pedro-santanna/
+    paper-master-list.md
+    analysis/        # 20 per-paper comparative analyses
+    raw_pdfs/        # Downloaded ArXiv v1 + published PDFs
+
+.claude/skills/      # Claude Code skill entry points
+  pedro-review/
+    SKILL.md         # Agent invocation definition
+```

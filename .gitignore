@@ -34,3 +34,6 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Research PDFs (copyrighted, re-download from ArXiv/author websites)
+research/*/raw_pdfs/
