@@ -1,0 +1,8 @@
+{
+  "name": "pedro-review-agent",
+  "description": "Reviews economics papers following Pedro Sant'Anna's writing style.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Zichao Yang"
+  }
+}

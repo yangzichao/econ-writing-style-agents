@@ -1,5 +1,14 @@
 # Econ Writing Style Agents
 
-Claude Code plugin. One agent currently available:
+Claude Code plugin marketplace. Install with:
+```
+claude plugin marketplace add yangzichao/econ-writing-style-agents
+claude plugin install pedro-review-agent@econ-writing-style-agents
+```
 
-`/pedro-review <file>` — Reviews an economics paper following Pedro Sant'Anna's writing conventions. Reads rule files from `skills/pedro-review/rules/`, applies them to the paper, outputs a structured editorial report.
+## Agent
+
+`/pedro-review <file>` — Reviews an economics paper following Pedro Sant'Anna's writing conventions.
+
+Agent definition: `plugins/pedro-review-agent/skills/pedro-review/SKILL.md`
+Rules: `plugins/pedro-review-agent/skills/pedro-review/rules/`

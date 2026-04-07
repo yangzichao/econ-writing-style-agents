@@ -1,22 +1,22 @@
 # Econ Writing Style Agents
 
-Claude Code plugin that reviews economics paper drafts following specific authors' writing conventions.
+Claude Code plugin marketplace for economics paper writing style review agents.
 
 ## Install
 
 ```bash
 claude plugin marketplace add yangzichao/econ-writing-style-agents
-claude plugin install econ-writing-style-agents@econ-writing-style-agents
+claude plugin install pedro-review-agent@econ-writing-style-agents
 ```
 
 Or inside a Claude Code session:
 
 ```
 /plugin marketplace add yangzichao/econ-writing-style-agents
-/plugin install econ-writing-style-agents@econ-writing-style-agents
+/plugin install pedro-review-agent@econ-writing-style-agents
 ```
 
-After installing, run `/reload-plugins` in your session to activate.
+After installing, run `/reload-plugins` to activate.
 
 ## Use
 
@@ -24,11 +24,11 @@ After installing, run `/reload-plugins` in your session to activate.
 /pedro-review path/to/your-paper.pdf
 ```
 
-Accepts PDF, LaTeX, or plain text. The agent reads your paper, consults 7 rule files derived from 20+ published papers, and produces a structured review report with concrete before/after suggestions.
+Accepts PDF, LaTeX, or plain text. The agent reads your paper, applies 7 rule files derived from 20+ published papers, and produces a structured editorial report.
 
 ## Agent: `/pedro-review`
 
-Reviews an economics paper following Pedro H.C. Sant'Anna's writing style. Based on systematic comparison of his ArXiv v1 drafts with published versions across Econometrica, Journal of Econometrics, JPE: Micro, AER, JEL, JBES, and JAERE.
+Reviews an economics paper following Pedro H.C. Sant'Anna's writing style — derived from comparing his ArXiv v1 drafts with published versions across Econometrica, JoE, JPE:Micro, AER, JEL, JBES, and JAERE.
 
 ### What the Report Covers
 
@@ -79,40 +79,28 @@ claude plugin marketplace update econ-writing-style-agents
 ## Uninstall
 
 ```bash
-claude plugin uninstall econ-writing-style-agents@econ-writing-style-agents
+claude plugin uninstall pedro-review-agent@econ-writing-style-agents
 ```
-
-## How It Works
-
-The agent is a single `SKILL.md` that:
-
-1. **Loads 7 rule files** at runtime — abstract, introduction, terminology, framing, revision patterns, style markers, and a multi-pass checklist
-2. **Reads your paper** (PDF, LaTeX, or plain text)
-3. **Applies the checklist** systematically across all sections
-4. **Outputs a structured report** with location, current text, suggested revision, and rule reference for each issue
-
-All rules are empirically derived from comparing ArXiv v1 drafts with final published versions of 20+ papers — not opinions, but observed revision patterns.
 
 ## Repo Structure
 
 ```
-.claude-plugin/
-  plugin.json                    # Plugin manifest
-  marketplace.json               # Marketplace definition
-skills/pedro-review/
-  SKILL.md                       # Agent entry point
-  rules/                         # 7 supporting rule files the agent reads
-  evidence-base.md               # Paper-by-paper evidence for each rule
-research/pedro-santanna/         # Raw research data (20 paper analyses)
+.claude-plugin/marketplace.json              # Marketplace definition
+plugins/pedro-review-agent/                  # Plugin package
+  .claude-plugin/plugin.json                 # Plugin manifest
+  skills/pedro-review/
+    SKILL.md                                 # Agent entry point
+    rules/                                   # 7 rule files the agent reads
+    evidence-base.md                         # Paper-by-paper evidence
+research/pedro-santanna/                     # Raw research data (20 paper analyses)
 ```
 
 ## Contributing a New Author Agent
 
 1. Collect papers with multiple versions (e.g., ArXiv v1 + published)
 2. Analyze revision patterns, save under `research/<author>/`
-3. Synthesize rules under `skills/<author>-review/rules/`
-4. Create `skills/<author>-review/SKILL.md`
-5. Add entry to `.claude-plugin/marketplace.json`
+3. Create a new plugin under `plugins/<author>-review-agent/`
+4. Add entry to `.claude-plugin/marketplace.json`
 
 ## License
 
