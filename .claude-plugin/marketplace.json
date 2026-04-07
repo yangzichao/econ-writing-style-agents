@@ -12,6 +12,11 @@
       "name": "pedro-review-agent",
       "source": "./plugins/pedro-review-agent",
       "description": "Reviews economics papers following Pedro Sant'Anna's writing style."
+    },
+    {
+      "name": "jonathan-roth-review-agent",
+      "source": "./plugins/jonathan-roth-review-agent",
+      "description": "Reviews economics papers following Jonathan Roth's writing style."
     }
   ]
 }
