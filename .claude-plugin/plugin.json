@@ -1,0 +1,9 @@
+{
+  "name": "econ-writing-style-agents",
+  "description": "Writing style review agents for economics papers. Reviews drafts following specific authors' editorial conventions, derived from empirical analysis of their revision patterns.",
+  "version": "1.0.0",
+  "author": {
+    "name": "yangzichao"
+  },
+  "repository": "https://github.com/yangzichao/econ-writing-style-agents"
+}
