@@ -1,15 +1,17 @@
 {
   "name": "econ-writing-style-agents",
-  "description": "Writing style review agents for economics papers",
+  "owner": {
+    "name": "Zichao Yang",
+    "url": "https://github.com/yangzichao"
+  },
+  "metadata": {
+    "description": "Writing style review agents for economics papers. Reviews drafts following specific authors' editorial conventions."
+  },
   "plugins": [
     {
-      "name": "pedro-review",
-      "description": "Reviews economics papers following Pedro Sant'Anna's writing style. Produces structured editorial reports with before/after suggestions.",
-      "version": "1.0.0",
-      "source": {
-        "type": "github",
-        "repo": "yangzichao/econ-writing-style-agents"
-      }
+      "name": "econ-writing-style-agents",
+      "source": ".",
+      "description": "Reviews economics papers following Pedro Sant'Anna's writing style. Produces structured editorial reports with before/after suggestions."
     }
   ]
 }
