@@ -10,7 +10,10 @@
   "plugins": [
     {
       "name": "econ-writing-style-agents",
-      "source": ".",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/yangzichao/econ-writing-style-agents.git"
+      },
       "description": "Reviews economics papers following Pedro Sant'Anna's writing style. Produces structured editorial reports with before/after suggestions."
     }
   ]
